@@ -14,17 +14,17 @@ function App() {
       .then(data => setFutbolistas(data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
-  
+
   const handleBuscar = () => {
     fetch(`http://localhost:8080/futbolista/${idBuscar}`)
       .then(response => response.json())
       .then(data => {
         if (data) {
-          setFutbolistas([data]); // Mostrar solo el futbolista encontrado
-          setFutbolistaEncontrado(data); // Actualizar el estado del futbolista encontrado
+          setFutbolistas([data]); 
+          setFutbolistaEncontrado(data);
         } else {
-          setFutbolistas([]); // Limpiar la lista si no se encuentra ningún futbolista
-          setFutbolistaEncontrado(null); // Limpiar el estado del futbolista encontrado
+          setFutbolistas([]); 
+          setFutbolistaEncontrado(null);
         }
       })
       .catch(error => console.error('Error fetching futbolista by ID:', error));
@@ -38,7 +38,6 @@ function App() {
     <div className="container mt-5">
       <h1 className="text-center mb-4">Futbolistas</h1>
       
-      {/* Formulario de búsqueda por ID */}
       <div className="input-group mb-3">
         <input
           type="text"
@@ -52,7 +51,6 @@ function App() {
         </div>
       </div>
 
-      {/* Tabla de futbolistas */}
       <table className="table table-striped">
         <thead className="table-dark">
           <tr>
