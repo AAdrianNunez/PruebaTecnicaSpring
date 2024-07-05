@@ -1,0 +1,25 @@
+CREATE TABLE Posicion(
+    IDPosicion int NOT NULL AUTO_INCREMENT,
+    Descripcion VARCHAR(255) NOT NULL,
+    PRIMARY KEY (IDPosicion)
+);
+CREATE TABLE Futbolista(
+    IDFutbolista int NOT NULL AUTO_INCREMENT,
+    IDPosicion int NOT NULL,
+    Nombres VARCHAR(255) NOT NULL,
+    Apellidos VARCHAR(255) NOT NULL,
+    FechaNacimiento Date NOT NULL,
+    Caracteristica VARCHAR(255) NOT NULL,
+    PRIMARY KEY (IDFutbolista),
+    FOREIGN KEY (IDPosicion) REFERENCES Posicion(IDPosicion)
+);
+
+INSERT INTO pruebatecnica.futbolista (IDPosicion,Nombres,Apellidos,FechaNacimiento,Caracteristica)
+VALUES (1, 'Manuel', 'Neuer', '1986-03-27', 'Reflejos rápidos, buen juego aéreo'),
+( 2, 'Lionel', 'Messi', '1987-06-24', 'Excelente dribbling, gran precisión en tiros libres'),
+( 3, 'Sergio', 'Ramos', '1986-03-30', 'Gran capacidad defensiva, buen juego de cabeza'),
+(2, 'Cristiano', 'Ronaldo', '1985-02-05', 'Gran capacidad atlética, potente remate de cabeza'),
+(3, 'Gerard', 'Piqué', '1987-02-02', 'Buena capacidad de anticipación, juego aéreo sólido');
+
+INSERT INTO pruebatecnica.posicion (Descripcion)
+VALUES ('Arquero'), ('Delantero'), ('Defensa')
